@@ -1,0 +1,17 @@
+﻿<Application x:Class="TTools.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TTools"
+             xmlns:vm="clr-namespace:TTools.ViewModels"
+             StartupUri="MainWindow.xaml"
+             >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <vm:ViewModelLocator x:Key="Locator"></vm:ViewModelLocator>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

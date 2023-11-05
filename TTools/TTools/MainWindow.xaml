@@ -1,0 +1,29 @@
+﻿<Window x:Class="TTools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TTools"
+        mc:Ignorable="d"
+        Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Height="35" Width="400"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0"
+                    GlassFrameThickness="0"
+                    NonClientFrameEdges="None"
+                    CornerRadius="0"
+                    ResizeBorderThickness="1"
+                    UseAeroCaptionButtons="False"
+                     />
+
+    </WindowChrome.WindowChrome>
+    <Grid Background="Transparent">
+        <Border x:Name="border" BorderBrush="LightGray" BorderThickness="1" Background="White" CornerRadius="4" >
+            <TextBox BorderBrush="Transparent" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="Transparent" Margin="5,0,0,0" BorderThickness="0" VerticalContentAlignment="Center" FocusVisualStyle="{x:Null}">
+             
+            </TextBox>
+        </Border>
+        <Popup Placement="Bottom" x:Name="pop" AllowsTransparency="True" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=border}">
+            <Grid Width="400" MinHeight="80" Background="Red"></Grid>
+        </Popup>
+    </Grid>
+</Window>
