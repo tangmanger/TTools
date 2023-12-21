@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TTools.Views;
 
 namespace TTools.ViewModels
 {
@@ -15,6 +16,8 @@ namespace TTools.ViewModels
             Ioc.Default.ConfigureServices(
             new ServiceCollection()
             .AddSingleton<MainViewModel>()
+            .AddTransient<UACViewModel>()
+            .AddSingleton<UACView>()
             .BuildServiceProvider()
              );
         }
@@ -24,6 +27,13 @@ namespace TTools.ViewModels
             {
 
                 return Ioc.Default.GetService<MainViewModel>() ?? new MainViewModel();
+            }
+        }
+        public UACViewModel UAC
+        {
+            get
+            {
+                return Ioc.Default.GetService<UACViewModel>() ?? new UACViewModel();
             }
         }
     }

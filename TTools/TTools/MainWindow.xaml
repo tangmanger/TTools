@@ -5,25 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TTools"
         mc:Ignorable="d"
-        Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStyle="None" Height="35" Width="400"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
+        Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="400" Width="600" WindowState="Normal"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="0"
+        <WindowChrome CaptionHeight="30"
                     GlassFrameThickness="0"
                     NonClientFrameEdges="None"
                     CornerRadius="0"
-                    ResizeBorderThickness="1"
+                    ResizeBorderThickness="3"
                     UseAeroCaptionButtons="False"
                      />
 
     </WindowChrome.WindowChrome>
-    <Grid Background="Transparent">
-        <Border x:Name="border" BorderBrush="LightGray" BorderThickness="1" Background="White" CornerRadius="4" >
-            <TextBox BorderBrush="Transparent" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="Transparent" Margin="5,0,0,0" BorderThickness="0" VerticalContentAlignment="Center" FocusVisualStyle="{x:Null}">
-             
-            </TextBox>
-        </Border>
-        <Popup Placement="Bottom" x:Name="pop" AllowsTransparency="True" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=border}">
-            <Grid Width="400" MinHeight="80" Background="Red"></Grid>
-        </Popup>
-    </Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="toolButtonScale" ScaleX="0.8" ScaleY="0.8"></ScaleTransform>
+        <ControlTemplate x:Key="toolButton" TargetType="Button">
+            <Border CornerRadius="4" x:Name="border" RenderTransformOrigin="0.5,0.5"  >
+                <Grid  Opacity="0.8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Border Background="Transparent" Opacity="0.8" CornerRadius="4" Height="50" Width="80">
+                        <TextBlock Style="{StaticResource IconFontStyle}" Foreground="{Binding Foreground}" Text="{Binding Icon}" FontSize="40"></TextBlock>
+                        <!--<Image Source="{Binding Icon,Converter={StaticResource NameToImageConverter}}"  HorizontalAlignment="Center" VerticalAlignment="Center"></Image>-->
+                    </Border>
+                    <TextBlock Text="{Binding ViewName}" MaxWidth="80" TextTrimming="WordEllipsis" ToolTip="{Binding ViewName}" Grid.Row="1" HorizontalAlignment="Center" FontSize="16" Margin="0,0,0,5" Foreground="Black"></TextBlock>
+                </Grid>
+
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="true">
+                    <Setter Property="RenderTransform" TargetName="border" Value="{DynamicResource toolButtonScale}"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+    <Border  BorderThickness="0.8" Background="{DynamicResource MainWorkAreaBackgroud}" CornerRadius="3" BorderBrush="{DynamicResource MainWindowBorderBrush}">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Background="{DynamicResource titleColoBrushes}" CornerRadius="3,3,0,0">
+                <Grid WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,6,0,6">
+                  
+                    <StackPanel WindowChrome.IsHitTestVisibleInChrome="True"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{Binding BackCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}"  Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter}}" Content="&#xe697;"></Button>
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.MinimizeWindowCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xea6a;"></Button>
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.MaximizeWindowCommand}"  x:Name="max" Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xe65d;"></Button>
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.RestoreWindowCommand}" x:Name="normal" Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xe692;"></Button>
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Foreground="{DynamicResource mainOperateButtonBrushes}" Command="{x:Static SystemCommands.CloseWindowCommand}" Content="&#xe607;"></Button>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding ToolList}" Margin="20"  Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter},ConverterParameter=f}">
+                <ItemsControl.Template>
+                    <ControlTemplate>
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Margin="10" Template="{StaticResource toolButton}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }">
+
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ContentControl  x:Name="workArea" Grid.Row="1" Content="{Binding WorkView}"></ContentControl>
+        </Grid>
+    </Border>
 </Window>

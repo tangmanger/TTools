@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTools", "TTools\TTools.csproj", "{7523FE86-9877-44E7-9833-98E58A965E3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TTools", "TTools\TTools.csproj", "{7523FE86-9877-44E7-9833-98E58A965E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTools.Domain", "TTools.Domain\TTools.Domain.csproj", "{75ABADF3-FA6E-455B-8664-4311970D4142}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10F4D298-712A-4A38-98BB-73896669C32E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +28,14 @@ Global
 		{7523FE86-9877-44E7-9833-98E58A965E3A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7523FE86-9877-44E7-9833-98E58A965E3A}.Release|x64.ActiveCfg = Release|x64
 		{7523FE86-9877-44E7-9833-98E58A965E3A}.Release|x64.Build.0 = Release|x64
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Debug|x64.ActiveCfg = Debug|x64
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Debug|x64.Build.0 = Debug|x64
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Release|x64.ActiveCfg = Release|Any CPU
+		{75ABADF3-FA6E-455B-8664-4311970D4142}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
