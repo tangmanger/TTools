@@ -18,6 +18,8 @@ namespace TTools.ViewModels
             .AddSingleton<MainViewModel>()
             .AddTransient<UACViewModel>()
             .AddSingleton<UACView>()
+            .AddSingleton<GpeditView>()
+            .AddSingleton<GpeditViewModel>()
             .BuildServiceProvider()
              );
         }
@@ -34,6 +36,13 @@ namespace TTools.ViewModels
             get
             {
                 return Ioc.Default.GetService<UACViewModel>() ?? new UACViewModel();
+            }
+        }
+        public GpeditViewModel Gpedit
+        {
+            get
+            {
+                return Ioc.Default.GetService<GpeditViewModel>() ?? new GpeditViewModel();
             }
         }
     }

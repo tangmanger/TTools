@@ -26,6 +26,36 @@ namespace TTools.ViewModels
             SetUac(UACStatus.Enabled);
         });
 
+        public RelayCommand DisableSwipeCommand => new RelayCommand(() =>
+        {
+            SetSwipe(SwipeState.Disable);
+        });
+        public RelayCommand EnableSwipeCommand => new RelayCommand(() =>
+        {
+            SetSwipe(SwipeState.Enable);
+        });
+        private void SetSwipe(SwipeState disable)
+        {
+            try
+            {
+                string path = @"SOFTWARE\Policies\Microsoft\Windows\EdgeUI";
+                string uac = "AllowEdgeSwipe";
+                RegistryKey key = Registry.LocalMachine.CreateSubKey(path);
+                if (key != null)
+                {
+                  
+                    key.SetValue(uac, (int)disable, RegistryValueKind.DWord);
+                    key.Close();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion
 
         #region 方法
@@ -44,8 +74,10 @@ namespace TTools.ViewModels
                 RegistryKey key = Registry.LocalMachine.CreateSubKey(path);
                 if (key != null)
                 {
+
                     key.SetValue(uac, (int)uACStatus, RegistryValueKind.DWord);
-                    key.Close();
+                    
+                    key.Close() ;
                 }
 
             }

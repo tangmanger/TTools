@@ -10,6 +10,8 @@
         <WrapPanel>
             <Button Width="80" Height="30" Style="{StaticResource CommonButtonStyle}" Command="{Binding CloseUACCommand}" Margin="10" Content="关闭UAC"></Button>
             <Button Width="80" Height="30" Style="{StaticResource CommonButtonStyle}" Command="{Binding OpenUACCommand}" Margin="10" Content="打开UAC"></Button>
+            <Button Width="80" Height="30" Style="{StaticResource CommonButtonStyle}" Command="{Binding DisableSwipeCommand}" Margin="10" Content="禁用屏幕上滑"></Button>
+            <Button Width="80" Height="30" Style="{StaticResource CommonButtonStyle}" Command="{Binding EnableSwipeCommand}" Margin="10" Content="启用屏幕上滑"></Button>
         </WrapPanel>
     </Grid>
 </UserControl>

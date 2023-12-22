@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TTools.Domain.Enums
 {
-    public enum ViewType
+    public enum SwipeState
     {
-        None,
-        UAC,
-        GpeditView
+        Enable,
+        Disable,
     }
 }
