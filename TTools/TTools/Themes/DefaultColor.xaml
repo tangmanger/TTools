@@ -55,4 +55,10 @@
     <SolidColorBrush x:Key="showWindowsBottonBackground" Color="#F0F0F0"></SolidColorBrush>
     <!--SettingControl-->
     <SolidColorBrush x:Key="settingControlBottonBackground" Color="#5D6B99"></SolidColorBrush>
+    <!--设置前景色-->
+    <SolidColorBrush x:Key="SettingButtonFontForeground" Color="Black"></SolidColorBrush>
+    <!--设置选中前景色-->
+    <SolidColorBrush x:Key="SettingButtonSelectedFontForeground" Color="#FF0F93A5"></SolidColorBrush>
+    <!--设置选中边框色-->
+    <SolidColorBrush x:Key="SettingButtonSelectedBorderBrush" Color="#FF0F93A5"></SolidColorBrush>
 </ResourceDictionary>

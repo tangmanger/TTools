@@ -35,5 +35,6 @@ namespace TTools.Domain.Models
         /// </summary>
         public string Icon { get; set; }
         public string ViewName { get; set; }
+        public ToolType ToolType { get; set; }
     }
 }

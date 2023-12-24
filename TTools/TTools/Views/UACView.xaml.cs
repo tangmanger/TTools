@@ -22,7 +22,7 @@ namespace TTools.Views
     /// <summary>
     /// UACView.xaml 的交互逻辑
     /// </summary>
-    [TView(ViewType.UAC,"UAC",typeof(UACView),typeof(UACViewModel), "\ue6bd", "red")]
+    [TView(ViewType.UAC,"UAC",typeof(UACView),typeof(UACViewModel), "\ue6bd", ToolType.System, "red")]
     public partial class UACView : UserControl
     {
         public UACView()

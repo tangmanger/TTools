@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:enums="clr-namespace:TTools.Domain.Enums;assembly=TTools.Domain"
         xmlns:local="clr-namespace:TTools"
         mc:Ignorable="d"
         Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="400" Width="600" WindowState="Normal"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
@@ -17,6 +18,7 @@
 
     </WindowChrome.WindowChrome>
     <Window.Resources>
+        <enums:ToolType x:Key="toolType"></enums:ToolType>
         <ScaleTransform x:Key="toolButtonScale" ScaleX="0.8" ScaleY="0.8"></ScaleTransform>
         <ControlTemplate x:Key="toolButton" TargetType="Button">
             <Border CornerRadius="4" x:Name="border" RenderTransformOrigin="0.5,0.5"  >
@@ -46,9 +48,10 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+
             <Border Background="{DynamicResource titleColoBrushes}" CornerRadius="3,3,0,0">
                 <Grid WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,6,0,6">
-                  
+
                     <StackPanel WindowChrome.IsHitTestVisibleInChrome="True"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{Binding BackCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}"  Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter}}" Content="&#xe697;"></Button>
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.MinimizeWindowCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xea6a;"></Button>
@@ -58,28 +61,39 @@
                     </StackPanel>
                 </Grid>
             </Border>
-            <ItemsControl Grid.Row="1" ItemsSource="{Binding ToolList}" Margin="20"  Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter},ConverterParameter=f}">
-                <ItemsControl.Template>
-                    <ControlTemplate>
-                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                            <ItemsPresenter/>
-                        </ScrollViewer>
-                    </ControlTemplate>
-                </ItemsControl.Template>
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel></WrapPanel>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Margin="10" Template="{StaticResource toolButton}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="{DynamicResource borderBrush}" BorderThickness="0,0,1,0"></Border>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton Content="系统设置" IsChecked="True" Margin="0,5,0,5" Command="{Binding MenuItemCommand}" CommandParameter="{x:Static enums:ToolType.System}" Style="{StaticResource SettingItemStyle}" ></RadioButton>
+                    <RadioButton Content="其他工具" Command="{Binding MenuItemCommand}" CommandParameter="{x:Static enums:ToolType.None}" Style="{StaticResource SettingItemStyle}" ></RadioButton>
+                </StackPanel>
+                <ItemsControl Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ToolList}"   Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter},ConverterParameter=f}">
+                    <ItemsControl.Template>
+                        <ControlTemplate>
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </ControlTemplate>
+                    </ItemsControl.Template>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Margin="10" Template="{StaticResource toolButton}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }">
 
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            <ContentControl  x:Name="workArea" Grid.Row="1" Content="{Binding WorkView}"></ContentControl>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <ContentControl  Grid.Column="1"  x:Name="workArea" Grid.Row="1" Content="{Binding WorkView}"></ContentControl>
+            </Grid>
         </Grid>
     </Border>
 </Window>

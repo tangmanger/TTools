@@ -31,7 +31,8 @@ namespace TTools.Helpers
                     Icon = toolAttribute.Icon,
                     SortId = toolAttribute.SortId,
                     ViewName = toolAttribute.ViewName,
-                    ViewModelType=toolAttribute.ViewModelType
+                    ViewModelType = toolAttribute.ViewModelType,
+                    ToolType = toolAttribute.ToolType,
                 });
 
 

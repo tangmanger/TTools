@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,9 @@ namespace TTools.Domain.Attributes
     [AttributeUsage(AttributeTargets.Class)]
     public class TViewAttribute : Attribute
     {
-        public TViewAttribute(ViewType viewType,string viewName, Type type,Type vmType,string icon, string brushes = "", int sortId = 0)
+        public TViewAttribute(ViewType viewType, string viewName, Type type, Type vmType, string icon, ToolType _toolType, string brushes = "", int sortId = 0)
         {
-           
+
             ViewType = viewType;
             Type = type;
             if (!string.IsNullOrWhiteSpace(brushes))
@@ -24,7 +25,10 @@ namespace TTools.Domain.Attributes
             Icon = icon;
             ViewName = viewName;
             ViewModelType = vmType;
+            ToolType = _toolType;
         }
+      
+        public ToolType ToolType { get; set; }
         public string ViewName { get; set; }
         /// <summary>
         /// 排序id
@@ -45,6 +49,6 @@ namespace TTools.Domain.Attributes
         /// 界面
         /// </summary>
         public ViewType ViewType { get; set; }
-     
+
     }
 }

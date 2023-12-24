@@ -40,4 +40,26 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="SettingItemStyle" TargetType="RadioButton">
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource SettingButtonFontForeground}"></Setter>
+        <Setter Property="Margin" Value="0,10,0,10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="border" >
+                        <TextBlock Text="{TemplateBinding Content}" FontSize="14" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="textBox" Foreground="{TemplateBinding Foreground}"></TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource SettingButtonSelectedFontForeground}" TargetName="textBox"></Setter>
+                            <Setter Property="BorderBrush" Value="{DynamicResource SettingButtonSelectedBorderBrush}" TargetName="border"></Setter>
+                            <Setter Property="BorderThickness" Value="0,0,1,0" TargetName="border"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
