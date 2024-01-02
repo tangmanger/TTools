@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TTools.Domain.Enums
+namespace TTools.ViewModels
 {
-    public enum ViewType
+    public class JsonViewModel : BaseTools
     {
-        None,
-        UAC,
-        GpeditView,
-        Json
     }
 }

@@ -18,8 +18,10 @@ namespace TTools.ViewModels
             .AddSingleton<MainViewModel>()
             .AddTransient<UACViewModel>()
             .AddSingleton<UACView>()
+            .AddSingleton<JsonView>()
             .AddSingleton<GpeditView>()
             .AddSingleton<GpeditViewModel>()
+            .AddSingleton<JsonViewModel>()
             .BuildServiceProvider()
              );
         }

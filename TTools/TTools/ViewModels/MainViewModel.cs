@@ -89,7 +89,7 @@ namespace TTools.ViewModels
         public void Init()
         {
             TViewsHelper.Init();
-            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == currentType);
+            ToolList = TViewsHelper.NaviteViewList;
         }
         FrameworkElement GoTo<T>(ViewType viewType, T param)
         {
@@ -143,7 +143,7 @@ namespace TTools.ViewModels
         public RelayCommand<ToolType> MenuItemCommand => new RelayCommand<ToolType>((t) =>
         {
             currentType = (ToolType)t;
-            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == currentType);
+            ToolList = TViewsHelper.NaviteViewList;//.FindAll(c => c.ToolType == currentType);
         });
 
         #endregion

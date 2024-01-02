@@ -6,10 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>favicon-20210203053803832.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Resources\Icons\iconfont.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="favicon-20210203053803832.ico" />
   </ItemGroup>
 
   <ItemGroup>
