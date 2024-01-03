@@ -47,5 +47,12 @@ namespace TTools.ViewModels
                 return Ioc.Default.GetService<GpeditViewModel>() ?? new GpeditViewModel();
             }
         }
+        public JsonViewModel Json
+        {
+            get
+            {
+                return Ioc.Default.GetService<JsonViewModel>() ?? new JsonViewModel();
+            }
+        }
     }
 }
