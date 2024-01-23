@@ -11,7 +11,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
         <TextBox Margin="5" TextWrapping="Wrap" Text="{Binding SourceText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <TextBox Margin="5" TextWrapping="Wrap" Grid.Column="1" Text="{Binding TargetText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <WrapPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="5">
+            <Button Style="{StaticResource CommonButtonStyle}" Content="格式化" Height="30" Width="100"></Button>
+        </WrapPanel>
     </Grid>
 </UserControl>

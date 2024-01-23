@@ -6,7 +6,7 @@
         xmlns:enums="clr-namespace:TTools.Domain.Enums;assembly=TTools.Domain"
         xmlns:local="clr-namespace:TTools"
         mc:Ignorable="d"
-        Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="400" Width="600" WindowState="Normal"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
+        Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="750" Width="1200"  WindowState="Normal"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="30"
                     GlassFrameThickness="0"
