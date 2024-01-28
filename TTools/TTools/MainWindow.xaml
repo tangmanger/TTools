@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:enums="clr-namespace:TTools.Domain.Enums;assembly=TTools.Domain"
+        xmlns:controls="https://dicgo.com/controls"
         xmlns:local="clr-namespace:TTools"
         mc:Ignorable="d"
         Title="TTools" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen" WindowStyle="None" Height="650" Width="1080"  WindowState="Normal"  DataContext="{Binding MainView,Source={StaticResource Locator}}" >
@@ -41,19 +42,19 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Border  BorderThickness="0.8" Background="{DynamicResource MainWorkAreaBackgroud}" CornerRadius="3" BorderBrush="{DynamicResource MainWindowBorderBrush}">
+    <Border  BorderThickness="0.8" Background="{DynamicResource MainWorkAreaBackgroud}" CornerRadius="10" BorderBrush="{DynamicResource MainWindowBorderBrush}">
         <Grid >
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Border Background="{DynamicResource titleColoBrushes}" CornerRadius="3,3,0,0">
+            <Border Background="{DynamicResource mainWindowTitleBorderBrush}" CornerRadius="10,10,0,0">
                 <Grid WindowChrome.IsHitTestVisibleInChrome="True" Margin="0,6,0,6">
 
                     <StackPanel WindowChrome.IsHitTestVisibleInChrome="True"  Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{Binding BackCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}"  Visibility="{Binding Content,ElementName=workArea,Converter={StaticResource NullToVisibilityConverter}}" Content="&#xe697;"></Button>
-                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.MinimizeWindowCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xea6a;"></Button>
+                        <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0" Visibility="Collapsed" Command="{x:Static SystemCommands.MinimizeWindowCommand}"  Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xea6a;"></Button>
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.MaximizeWindowCommand}"  x:Name="max" Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xe65d;"></Button>
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Margin="10,0,10,0"  Command="{x:Static SystemCommands.RestoreWindowCommand}" x:Name="normal" Foreground="{DynamicResource mainOperateButtonBrushes}" Content="&#xe692;"></Button>
                         <Button Style="{StaticResource IconButtonStyle}" FontSize="16" Foreground="{DynamicResource mainOperateButtonBrushes}" Command="{x:Static SystemCommands.CloseWindowCommand}" Content="&#xe607;"></Button>
@@ -62,12 +63,57 @@
             </Border>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="180"></ColumnDefinition>
+                    <ColumnDefinition Width="130"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Border BorderBrush="{DynamicResource borderBrush}" BorderThickness="0,0,1,0"></Border>
-               
-                <ContentControl  Grid.Column="1"  x:Name="workArea" Grid.Row="1" Content="{Binding WorkView}"></ContentControl>
+                <StackPanel Orientation="Vertical">
+                    <controls:NavigateButton Icon="&#xe6a0;" d:Content="系统相关" IsChecked="True" Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="35" Content="{DynamicResource SystemContent}" ToolTips="System" >
+
+                    </controls:NavigateButton>
+
+                    <controls:NavigateButton Icon="&#xe604;" d:Content="文本操作"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"   Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="35" Content="{DynamicResource TxtContent}" ToolTips="Txt" >
+
+                    </controls:NavigateButton>
+                </StackPanel>
+                <Border Background="{DynamicResource workAreaBackground}"  Grid.Column="1" CornerRadius="0,0,10,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{Binding CurrentTitle}" FontSize="25" FontWeight="Heavy" VerticalAlignment="Center" Margin="10,15,0,0"></TextBlock>
+                        <Border Grid.Row="1" Background="{DynamicResource MainWorkAreaBackgroud}" MinWidth="350" Height="38" HorizontalAlignment="Left" Margin="10,10,10,0"  CornerRadius="3">
+                            <ItemsControl Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" ItemsSource="{Binding ToolList}"  Margin="10,0,10,0" >
+                                <ItemsControl.Template>
+                                    <ControlTemplate>
+                                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </ControlTemplate>
+                                </ItemsControl.Template>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"></StackPanel>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <!--<Button Margin="10" Template="{StaticResource toolButton}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }">
+
+                                    </Button>-->
+                                        <RadioButton Content="{Binding ViewName}"  IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }" Margin="10,0,0,0" Height="30" GroupName="table" Style="{StaticResource TableButtonStyle1}"></RadioButton>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </Border>
+                        <Border Grid.Row="2" Background="{DynamicResource MainWorkAreaBackgroud}" Margin="10,8,10,10">
+                            <ContentControl   x:Name="workArea" Grid.Row="2"  Content="{Binding WorkView}"></ContentControl>
+                        </Border>
+                       
+
+                    </Grid>
+                </Border>
             </Grid>
         </Grid>
     </Border>

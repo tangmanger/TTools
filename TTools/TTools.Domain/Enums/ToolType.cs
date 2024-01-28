@@ -8,7 +8,14 @@ namespace TTools.Domain.Enums
 {
     public enum ToolType
     {
-        None,   
-        System
+        None,
+        /// <summary>
+        /// 系统
+        /// </summary>
+        System,
+        /// <summary>
+        /// 文本
+        /// </summary>
+        Txt
     }
 }

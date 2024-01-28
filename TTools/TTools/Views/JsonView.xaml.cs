@@ -21,7 +21,7 @@ namespace TTools.Views
     /// <summary>
     /// JsonView.xaml 的交互逻辑
     /// </summary>
-    [TView(ViewType.Json, "Json格式化校验", typeof(JsonView), typeof(JsonViewModel), "\uea42", ToolType.System, "#FF8A2BE2")]
+    [TView(ViewType.Json, "Json", typeof(JsonView), typeof(JsonViewModel), "\uea42", ToolType.Txt, "#FF8A2BE2")]
     public partial class JsonView : UserControl
     {
         public JsonView()

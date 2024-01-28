@@ -8,8 +8,10 @@ using TTools.Domain.Enums;
 
 namespace TTools.Domain.Models
 {
-    public class NativeModel
+    public class NativeModel : BaseModel
     {
+        private bool isSelected;
+
         /// <summary>
         /// 界面
         /// </summary>
@@ -36,5 +38,15 @@ namespace TTools.Domain.Models
         public string Icon { get; set; }
         public string ViewName { get; set; }
         public ToolType ToolType { get; set; }
+
+        public bool IsSelected
+        {
+            get => isSelected;
+            set
+            {
+                isSelected = value;
+                RaisePropertyChanged();
+            }
+        }
     }
 }

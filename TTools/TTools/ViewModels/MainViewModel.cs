@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Xml.Linq;
 using TTools.Domain.Enums;
 using TTools.Domain.Interfaces;
@@ -23,6 +25,11 @@ namespace TTools.ViewModels
         public MainViewModel()
         {
             SearchText = string.Empty;
+            string txt = App.Current.FindResource("SystemContent") as string;
+            if (!string.IsNullOrWhiteSpace(txt))
+            {
+                CurrentTitle = txt;
+            }
 
         }
 
@@ -30,7 +37,8 @@ namespace TTools.ViewModels
         #region 属性
 
         ToolType currentType = ToolType.System;
-
+        private FrameworkElement _workView;
+        private string currentTitle;
         private string searchText = string.Empty;
         /// <summary>
         /// 搜索
@@ -61,7 +69,8 @@ namespace TTools.ViewModels
             }
         }
 
-        private FrameworkElement _workView;
+
+
         /// <summary>
         /// 工作区域
         /// </summary>
@@ -78,6 +87,20 @@ namespace TTools.ViewModels
             }
         }
 
+        /// <summary>
+        /// 当前标题
+        /// </summary>
+        public string CurrentTitle
+        {
+            get => currentTitle;
+            set
+            {
+                currentTitle = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         #endregion
 
         #region 方法
@@ -89,7 +112,13 @@ namespace TTools.ViewModels
         public void Init()
         {
             TViewsHelper.Init();
-            ToolList = TViewsHelper.NaviteViewList;
+            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == ToolType.System);
+            var first = ToolList.FirstOrDefault();
+            if (first != null)
+            {
+                first.IsSelected = true;
+                NavigateToCommand?.Execute(first);
+            }
         }
         FrameworkElement GoTo<T>(ViewType viewType, T param)
         {
@@ -142,8 +171,21 @@ namespace TTools.ViewModels
         /// </summary>
         public RelayCommand<ToolType> MenuItemCommand => new RelayCommand<ToolType>((t) =>
         {
-            currentType = (ToolType)t;
-            ToolList = TViewsHelper.NaviteViewList;//.FindAll(c => c.ToolType == currentType);
+            //currentType = (ToolType)t;
+            //ToolList = TViewsHelper.NaviteViewList;//.FindAll(c => c.ToolType == currentType);
+        });
+
+        public RelayCommand<NavigateButtonModel> MenuCommand => new RelayCommand<NavigateButtonModel>((s) =>
+        {
+            CurrentTitle = s.Title;
+            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == s.ToolType);
+            var first = ToolList.Find(c => c.IsSelected) ?? ToolList.FirstOrDefault();
+            if (first != null)
+            {
+                first.IsSelected = true;
+                NavigateToCommand?.Execute(first);
+            }
+
         });
 
         #endregion

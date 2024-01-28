@@ -11,10 +11,12 @@
                 <ResourceDictionary>
                     <vm:ViewModelLocator x:Key="Locator"></vm:ViewModelLocator>
                 </ResourceDictionary>
+                <ResourceDictionary Source="/Themes/Zh_CN.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Styles/Converters.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Themes/DefaultColor.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Styles/TextBlock.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Styles/Button.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Styles/RadioButton.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

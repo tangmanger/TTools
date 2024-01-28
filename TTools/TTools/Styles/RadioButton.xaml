@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:controls="https://dicgo.com/controls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="NavigateButtonStyle" TargetType="controls:NavigateButton">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:NavigateButton">
+                    <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="Transparent">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Border Width="5" HorizontalAlignment="Left"  x:Name="leftBorder"></Border>
+                        <Border Grid.Column="1" Grid.ColumnSpan="2" x:Name="rightBorder"></Border>
+                        <TextBlock Grid.Column="1" Foreground="{TemplateBinding Foreground}" FontSize="20" Text="{TemplateBinding Icon}"  Margin="5,0,0,0"   Style="{StaticResource IconFontStyle}" ></TextBlock>
+                        <TextBlock Text="{TemplateBinding Content}" Margin="5,0,0,0"  Foreground="{TemplateBinding Foreground}"  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Column="2"></TextBlock>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource navigateButtonBackgroud}" TargetName="leftBorder"></Setter>
+                            <Setter Property="Background" Value="{DynamicResource navigateButtonBackgroud}" TargetName="rightBorder"></Setter>
+                            <Setter Property="Foreground" Value="{DynamicResource navigateButtonCheckForeground}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TableButtonStyle" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Width="{TemplateBinding Width}" x:Name="border" Height="{TemplateBinding Height}"  Background="Transparent" BorderThickness="1" BorderBrush="{DynamicResource tableBorderBrush}" CornerRadius="2" >
+                        <TextBlock Text="{TemplateBinding Content}" Margin="2"  Foreground="{TemplateBinding Foreground}"  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ></TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource tableBackgroud}" TargetName="border"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="TableButtonStyle1" TargetType="RadioButton">
+        <Setter Property="FontSize" Value="16"></Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border Width="{TemplateBinding Width}" x:Name="border" Height="{TemplateBinding Height}"  Background="Transparent" >
+                        <TextBlock Text="{TemplateBinding Content}"  x:Name="txt" Margin="2"  Foreground="{TemplateBinding Foreground}"  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ></TextBlock>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource tableForeground}" TargetName="txt"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

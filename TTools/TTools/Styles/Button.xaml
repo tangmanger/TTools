@@ -8,12 +8,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border x:Name="border" RenderTransformOrigin="0.5,0.5" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                         <TextBlock Style="{StaticResource IconFontStyle}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  FontSize="{TemplateBinding FontSize}" Foreground="{TemplateBinding Foreground}" x:Name="textBlock" Text="{TemplateBinding Content}"></TextBlock>
                     </Border>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="{DynamicResource iconButtonMouseOverColor}" TargetName="textBlock"></Setter>
+                        </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Foreground" Value="#009CFF" TargetName="textBlock"></Setter>
+                         
+                            <Setter Property="RenderTransform" Value="{StaticResource buttonScale}" TargetName="border"></Setter>
                         </Trigger>
 
                     </ControlTemplate.Triggers>
