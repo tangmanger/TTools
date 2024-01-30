@@ -78,12 +78,12 @@
                 <Border Background="{DynamicResource workAreaBackground}"  Grid.Column="1" CornerRadius="0,0,10,0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="0"></RowDefinition>
+                            <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding CurrentTitle}" FontSize="25" FontWeight="Heavy" VerticalAlignment="Center" Margin="10,15,0,0"></TextBlock>
-                        <Border Grid.Row="1" Background="{DynamicResource MainWorkAreaBackgroud}" MinWidth="350" Height="38" HorizontalAlignment="Left" Margin="10,10,10,0"  CornerRadius="3">
+                        <TextBlock Text="{Binding CurrentTitle}" FontSize="18" FontWeight="Heavy" VerticalAlignment="Center" Margin="10,15,0,0"></TextBlock>
+                        <Border Grid.Row="1" Background="{DynamicResource MainWorkAreaBackgroud}"  Height="38"  Margin="10,10,10,0"  CornerRadius="3">
                             <ItemsControl Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" ItemsSource="{Binding ToolList}"  Margin="10,0,10,0" >
                                 <ItemsControl.Template>
                                     <ControlTemplate>
@@ -107,7 +107,7 @@
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </Border>
-                        <Border Grid.Row="2" Background="{DynamicResource MainWorkAreaBackgroud}" Margin="10,8,10,10">
+                        <Border Grid.Row="2" Background="{DynamicResource MainWorkAreaBackgroud}" Margin="10,1,10,10">
                             <ContentControl   x:Name="workArea" Grid.Row="2"  Content="{Binding WorkView}"></ContentControl>
                         </Border>
                        
