@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dicgo.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace TTools.Domain.Attributes
             }
             SortId = sortId;
             Icon = icon;
-            ViewName = viewName;
+            ViewName = viewName.GetLangText();
             ViewModelType = vmType;
             ToolType = _toolType;
         }

@@ -28,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Dicgo.Common\Dicgo.Common\Dicgo.Common.csproj" />
     <ProjectReference Include="..\TTools.Controls\TTools.Controls.csproj" />
     <ProjectReference Include="..\TTools.Domain\TTools.Domain.csproj" />
   </ItemGroup>

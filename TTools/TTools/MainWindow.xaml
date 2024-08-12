@@ -79,7 +79,7 @@
                         <Ellipse Fill="Red" Width="35" Height="35"></Ellipse>
                         <TextBlock Text="用户名" VerticalAlignment="Center" FontSize="16" Margin="15,0,0,0"></TextBlock>
                     </StackPanel>
-                    <controls:NavigateButton Icon="&#xe83a;" d:Content="主页" IsChecked="True" Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemMainHomeContent}" ToolTips="System" >
+                    <controls:NavigateButton Icon="&#xe83a;" d:Content="主页" IsChecked="True" Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemMainHomeContent}" ToolTips="Home" >
 
                     </controls:NavigateButton>
                     <controls:NavigateButton Icon="&#xe6a0;" d:Content="系统相关"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}" IconFontSize="20" Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemContent}" ToolTips="System" >

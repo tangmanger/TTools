@@ -8,4 +8,8 @@
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Dicgo.Common\Dicgo.Common\Dicgo.Common.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -135,7 +135,7 @@ namespace TTools.ViewModels
         public void Init()
         {
             TViewsHelper.Init();
-            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == ToolType.System);
+            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == ToolType.Home);
             var first = ToolList.FirstOrDefault();
             if (first != null)
             {

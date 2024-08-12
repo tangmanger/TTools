@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dicgo.Common.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,10 @@ namespace TTools.Views
     /// <summary>
     /// Home.xaml 的交互逻辑
     /// </summary>
-    [TView(ViewType.HomeView, "主页", typeof(UACView), typeof(UACViewModel), "\ue6bd", ToolType.System, "red")]
-    public partial class Home : UserControl
+    [TView(ViewType.HomeView, "主页", typeof(HomeView), typeof(HomeViewModel), "\ue6bd", ToolType.Home, "red")]
+    public partial class HomeView : UserControl
     {
-        public Home()
+        public HomeView()
         {
             InitializeComponent();
         }
