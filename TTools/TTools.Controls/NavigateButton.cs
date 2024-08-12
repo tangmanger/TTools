@@ -34,6 +34,18 @@ namespace TTools.Controls
             DependencyProperty.Register("Icon", typeof(string), typeof(NavigateButton));
 
 
+        public double IconFontSize
+        {
+            get { return (double)GetValue(IconFontSizeProperty); }
+            set { SetValue(IconFontSizeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for IconFontSize.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty IconFontSizeProperty =
+            DependencyProperty.Register("IconFontSize", typeof(double), typeof(NavigateButton), new PropertyMetadata(25d));
+
+
+
         public ToolType ToolTips
         {
             get { return (ToolType)GetValue(ToolTipsProperty); }

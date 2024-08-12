@@ -9,6 +9,7 @@ namespace TTools.Domain.Enums
     public enum ViewType
     {
         None,
+        HomeView,
         UAC,
         GpeditView,
         Json

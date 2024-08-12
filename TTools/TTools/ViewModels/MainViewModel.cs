@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 using System.Xml.Linq;
 using TTools.Domain.Enums;
 using TTools.Domain.Interfaces;
@@ -21,25 +22,33 @@ namespace TTools.ViewModels
     public class MainViewModel : ObservableObject
     {
 
-
+        DispatcherTimer? _timer = null;
         public MainViewModel()
         {
             SearchText = string.Empty;
-            string txt = App.Current.FindResource("SystemContent") as string;
+            string txt = App.Current.FindResource("SystemContent") as string ?? "";
             if (!string.IsNullOrWhiteSpace(txt))
             {
                 CurrentTitle = txt;
             }
+            _timer = new DispatcherTimer();
+            _timer.Tick += _timer_Tick;
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Start();
+        }
 
+        private void _timer_Tick(object? sender, EventArgs e)
+        {
+            TimeTips = DateTime.Now;
         }
 
 
         #region 属性
 
         ToolType currentType = ToolType.System;
-        private FrameworkElement _workView;
-        private string currentTitle;
-        private string searchText = string.Empty;
+        private FrameworkElement? _workView;
+        private string? currentTitle;
+        private string? searchText = string.Empty;
         /// <summary>
         /// 搜索
         /// </summary>
@@ -52,7 +61,9 @@ namespace TTools.ViewModels
                 OnPropertyChanged();
             }
         }
-        private List<NativeModel> _toolList;
+        private List<NativeModel>? _toolList;
+        private DateTime timeTips;
+
         /// <summary>
         /// 工具列表
         /// </summary>
@@ -99,7 +110,19 @@ namespace TTools.ViewModels
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// 时间
+        /// </summary>
+        public DateTime TimeTips
+        {
 
+            get => timeTips;
+            set
+            {
+                timeTips = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
 

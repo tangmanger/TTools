@@ -9,13 +9,13 @@
                 <ControlTemplate TargetType="controls:NavigateButton">
                     <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="Transparent">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10"></ColumnDefinition>
+                            <ColumnDefinition Width="0"></ColumnDefinition>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Border Width="5" HorizontalAlignment="Left"  x:Name="leftBorder"></Border>
                         <Border Grid.Column="1" Grid.ColumnSpan="2" x:Name="rightBorder"></Border>
-                        <TextBlock Grid.Column="1" Foreground="{TemplateBinding Foreground}" FontSize="20" Text="{TemplateBinding Icon}"  Margin="5,0,0,0"   Style="{StaticResource IconFontStyle}" ></TextBlock>
+                        <TextBlock Grid.Column="1" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding IconFontSize}" Text="{TemplateBinding Icon}"  Margin="5,0,0,0"   Style="{StaticResource IconFontStyle}" ></TextBlock>
                         <TextBlock Text="{TemplateBinding Content}" Margin="5,0,0,0"  Foreground="{TemplateBinding Foreground}"  VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Column="2"></TextBlock>
                     </Grid>
                     <ControlTemplate.Triggers>

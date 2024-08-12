@@ -1,19 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--基础颜色-->
-
+    <SolidColorBrush x:Key="transparent" Color="Transparent"></SolidColorBrush>
     <SolidColorBrush x:Key="MainWorkAreaBackgroud" Color="White"></SolidColorBrush>
     <SolidColorBrush x:Key="MainWindowBorderBrush" Color="#FFA49F9F"></SolidColorBrush>
     <SolidColorBrush x:Key="mainWindowTitleBorderBrush" Color="White"></SolidColorBrush>
-    <SolidColorBrush x:Key="navigateButtonBackgroud" Color="#FF4781FF"></SolidColorBrush>
+    <SolidColorBrush x:Key="navigateButtonBackgroud" Color="#e3e9ff"></SolidColorBrush>
     <SolidColorBrush x:Key="navigateButtonForeground" Color="LightGray"></SolidColorBrush>
-    <SolidColorBrush x:Key="navigateButtonCheckForeground" Color="White"></SolidColorBrush>
+    <SolidColorBrush x:Key="navigateButtonCheckForeground" Color="#FF478DE2"></SolidColorBrush>
     <SolidColorBrush x:Key="iconButtonMouseOverColor" Color="#009CFF"></SolidColorBrush>
-    <SolidColorBrush x:Key="workAreaBackground" Color="#FFF6F7FB"></SolidColorBrush>
+    <SolidColorBrush x:Key="workAreaBackground" Color="#dbe5fe"></SolidColorBrush>
     <!--button-->
     <SolidColorBrush x:Key="CommonButtonBackgroundBrush" Color="White"></SolidColorBrush>
     <SolidColorBrush x:Key="CommonButtonBorderBrush" Color="LightGray"></SolidColorBrush>
     <!--tableColor-->
     <SolidColorBrush x:Key="tableBorderBrush" Color="#FFA49F9F"></SolidColorBrush>
     <SolidColorBrush x:Key="tableForeground" Color="#FF51C799"></SolidColorBrush>
+    <!--左侧展示-->
+    <SolidColorBrush x:Key="leftControlBackground" Color="#dae0f6"></SolidColorBrush>
 </ResourceDictionary>

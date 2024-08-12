@@ -10,6 +10,10 @@ namespace TTools.Domain.Enums
     {
         None,
         /// <summary>
+        /// 主页
+        /// </summary>
+        Home,
+        /// <summary>
         /// 系统
         /// </summary>
         System,
