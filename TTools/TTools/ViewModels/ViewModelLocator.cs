@@ -15,6 +15,7 @@ namespace TTools.ViewModels
         {
             Ioc.Default.ConfigureServices(
             new ServiceCollection()
+            .AddSingleton<HomeView>()
             .AddSingleton<MainViewModel>()
             .AddTransient<UACViewModel>()
             .AddSingleton<UACView>()
@@ -22,6 +23,7 @@ namespace TTools.ViewModels
             .AddSingleton<GpeditView>()
             .AddSingleton<GpeditViewModel>()
             .AddSingleton<JsonViewModel>()
+            .AddSingleton<HomeViewModel>()
             .BuildServiceProvider()
              );
         }

@@ -17,6 +17,7 @@
                 <ResourceDictionary Source="/Styles/TextBlock.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Styles/Button.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="/Styles/RadioButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="/Styles/TextBox.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

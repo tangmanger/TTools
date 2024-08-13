@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:iconButton="https://dicgo.com/controls">
     <ScaleTransform x:Key="buttonScale" ScaleX="0.8" ScaleY="0.8"></ScaleTransform>
     <Style x:Key="IconButtonStyle" TargetType="Button">
         <Setter Property="Foreground" Value="LightGray"></Setter>
