@@ -3,22 +3,25 @@
                     xmlns:tcontrols="https://dicgo.com/controls">
     <Style x:Key="SearchTextBoxStyle" TargetType="tcontrols:IconTextBox">
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-        <Setter Property="Background" Value="{DynamicResource navigateButtonBackgroud}"></Setter>
+        <Setter Property="Background" Value="{DynamicResource iconIconTextBackground}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource iconIconTextBorderBrushColor}"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="tcontrols:IconTextBox">
-                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="Red" CornerRadius="4">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="15">
                         <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition></ColumnDefinition>
                                 <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
-                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" 
+                            <Border x:Name="PART_Border"  Margin="6,1,6,0">
+                                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" 
                                      HorizontalScrollBarVisibility="Hidden" 
                                      VerticalScrollBarVisibility="Hidden" 
                                      HorizontalAlignment="Stretch" 
-                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="6,1,6,0" />
-                            <Button Grid.Column="1" Width="20" x:Name="PART_Button"></Button>
+                                     VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="12,1,6,0"/>
+                            </Border>
+                            <Button Grid.Column="1" Content="&#xe62a;" Foreground="{TemplateBinding SelectionBrush}" Margin="0,0,10,0" FontSize="18" Style="{StaticResource IconButtonStyle}" Width="20" x:Name="PART_Button"></Button>
                         </Grid>
 
                     </Border>

@@ -21,7 +21,7 @@ namespace TTools.Views
     /// <summary>
     /// GpeditView.xaml 的交互逻辑
     /// </summary>
-    [TView(ViewType.GpeditView, "组策略", typeof(GpeditView), typeof(GpeditViewModel), "\ue660", ToolType.System, "red")]
+    //[TView(ViewType.GpeditView, "组策略", typeof(GpeditView), typeof(GpeditViewModel), "\ue660", ToolType.System, "red")]
     public partial class GpeditView : UserControl
     {
         public GpeditView()

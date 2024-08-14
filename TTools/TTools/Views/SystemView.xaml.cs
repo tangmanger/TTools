@@ -14,22 +14,19 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TTools.Domain.Attributes;
 using TTools.Domain.Enums;
-using TTools.Domain.Interfaces;
 using TTools.ViewModels;
 
 namespace TTools.Views
 {
     /// <summary>
-    /// UACView.xaml 的交互逻辑
+    /// SystemView.xaml 的交互逻辑
     /// </summary>
-    //[TView(ViewType.UAC,"UAC",typeof(UACView),typeof(UACViewModel), "\ue6bd", ToolType.System, "red")]
-    public partial class UACView : UserControl
+    [TView(ViewType.SystemView, "组策略", typeof(SystemView), typeof(SystemViewModel), "\ue660", ToolType.System, "red")]
+    public partial class SystemView : UserControl
     {
-        public UACView()
+        public SystemView()
         {
             InitializeComponent();
         }
-
-       
     }
 }

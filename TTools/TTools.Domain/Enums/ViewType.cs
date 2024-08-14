@@ -12,6 +12,7 @@ namespace TTools.Domain.Enums
         HomeView,
         UAC,
         GpeditView,
+        SystemView,
         Json
     }
 }

@@ -149,26 +149,30 @@ namespace TTools.ViewModels
 
             var view = ToolList.Find(p => p.ViewType == viewType);
             if (view == null) { return null; }
+            var control = Ioc.Default.GetService(view.Type) as FrameworkElement;
+            var vm = Ioc.Default.GetService(view.ViewModelType) as BaseTools;
+            if (control != null && control.DataContext == null)
+                control.DataContext = vm;
             if (WorkView != null)
             {
                 var naviget = WorkView.DataContext as INavigateOut;
                 if (naviget != null)
                     naviget.NavigateOut();
             }
-            var navigate = Ioc.Default.GetService(view.ViewModelType) as INavigateIn;
+            var navigate = vm as INavigateIn;
             if (navigate != null)
             {
                 navigate.NavigateIn();
             }
             else
             {
-                var navigateParam = Ioc.Default.GetService(view.ViewModelType) as INavigateIn<T>;
+                var navigateParam = vm as INavigateIn<T>;
                 if (navigateParam != null)
                 {
                     navigateParam.NavigateIn(param);
                 }
             }
-            return Ioc.Default.GetService(view.Type) as FrameworkElement;
+            return control;
         }
         #endregion
 

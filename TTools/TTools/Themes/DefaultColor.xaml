@@ -18,4 +18,6 @@
     <SolidColorBrush x:Key="tableForeground" Color="#FF51C799"></SolidColorBrush>
     <!--左侧展示-->
     <SolidColorBrush x:Key="leftControlBackground" Color="#dae0f6"></SolidColorBrush>
+    <SolidColorBrush x:Key="iconIconTextBorderBrushColor" Color="#AABEDB"></SolidColorBrush>
+    <SolidColorBrush x:Key="iconIconTextBackground" Color="#E3E9FF"></SolidColorBrush>
 </ResourceDictionary>

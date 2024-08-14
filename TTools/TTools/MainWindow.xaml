@@ -89,6 +89,8 @@
                     <controls:NavigateButton Icon="&#xe604;" d:Content="文本操作"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"   Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource TxtContent}" ToolTips="Txt" >
 
                     </controls:NavigateButton>
+
+                  
                 </StackPanel>
                 <Border Background="{DynamicResource workAreaBackground}"  Grid.Column="1" CornerRadius="0,0,10,0">
                     <Grid>

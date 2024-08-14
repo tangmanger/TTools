@@ -12,6 +12,6 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <tcontrols:IconTextBox Style="{StaticResource SearchTextBoxStyle}"  Width="550" Height="35"></tcontrols:IconTextBox>
+        <tcontrols:IconTextBox Style="{StaticResource SearchTextBoxStyle}" PlaceHolderText="请输入名称..." Margin="0,50,0,0" Width="550" Height="35"></tcontrols:IconTextBox>
     </Grid>
 </UserControl>
