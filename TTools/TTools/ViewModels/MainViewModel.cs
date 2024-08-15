@@ -137,13 +137,14 @@ namespace TTools.ViewModels
             TViewsHelper.Init();
             ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == ToolType.Home);
             var first = ToolList.FirstOrDefault();
-            if (first != null)
-            {
-                first.IsSelected = true;
-                NavigateToCommand?.Execute(first);
-            }
+            MenuCommand.Execute(new NavigateButtonModel() { ParentToolType = ToolType.Home });
+            //if (first != null)
+            //{
+            //    first.IsSelected = true;
+            //    NavigateToCommand?.Execute(first);
+            //}
         }
-        FrameworkElement GoTo<T>(ViewType viewType, T param)
+        FrameworkElement GoTo<T>(ViewType viewType, T param, T param1)
         {
             if (viewType == ViewType.None) return null;
 
@@ -169,7 +170,7 @@ namespace TTools.ViewModels
                 var navigateParam = vm as INavigateIn<T>;
                 if (navigateParam != null)
                 {
-                    navigateParam.NavigateIn(param);
+                    navigateParam.NavigateIn(param1);
                 }
             }
             return control;
@@ -181,16 +182,16 @@ namespace TTools.ViewModels
 
         public RelayCommand<NativeModel> NavigateToCommand => new RelayCommand<NativeModel>((n) =>
         {
-            if (n != null)
-            {
-                WorkView = GoTo<string>(n.ViewType, "");
-            }
+            //if (n != null)
+            //{
+            //    WorkView = GoTo(n.ViewType,n.ToolType);
+            //}
 
         });
 
         public RelayCommand BackCommand => new RelayCommand(() =>
         {
-            WorkView = GoTo<string>(ViewType.None, "");
+            WorkView = GoTo<string>(ViewType.None, "", "");
         });
 
         /// <summary>
@@ -205,12 +206,15 @@ namespace TTools.ViewModels
         public RelayCommand<NavigateButtonModel> MenuCommand => new RelayCommand<NavigateButtonModel>((s) =>
         {
             CurrentTitle = s.Title;
-            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == s.ToolType);
+            ToolList = TViewsHelper.NaviteViewList.FindAll(c => c.ToolType == s.ParentToolType);
             var first = ToolList.Find(c => c.IsSelected) ?? ToolList.FirstOrDefault();
             if (first != null)
             {
                 first.IsSelected = true;
-                NavigateToCommand?.Execute(first);
+                if (first != null)
+                {
+                    WorkView = GoTo(first.ViewType, s.ParentToolType, s.ToolType);
+                }
             }
 
         });

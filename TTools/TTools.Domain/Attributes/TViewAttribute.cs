@@ -28,7 +28,6 @@ namespace TTools.Domain.Attributes
             ViewModelType = vmType;
             ToolType = _toolType;
         }
-      
         public ToolType ToolType { get; set; }
         public string ViewName { get; set; }
         /// <summary>

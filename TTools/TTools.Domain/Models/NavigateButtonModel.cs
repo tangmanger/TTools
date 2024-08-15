@@ -12,5 +12,6 @@ namespace TTools.Domain.Models
     {
         public string Title { get; set; }
         public ToolType ToolType { get; set; }
+        public ToolType ParentToolType { get; set; }
     }
 }

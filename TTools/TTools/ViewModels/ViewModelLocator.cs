@@ -17,13 +17,17 @@ namespace TTools.ViewModels
             new ServiceCollection()
             .AddSingleton<HomeView>()
             .AddSingleton<MainViewModel>()
-            .AddTransient<UACViewModel>()
+            .AddSingleton<UACViewModel>()
             .AddSingleton<UACView>()
+            .AddSingleton<PDFView>()
             .AddSingleton<JsonView>()
             .AddSingleton<SystemView>()
+            .AddSingleton<ToolView>()
             .AddSingleton<SystemViewModel>()
             .AddSingleton<JsonViewModel>()
             .AddSingleton<HomeViewModel>()
+            .AddSingleton<PDFViewModel>()
+            .AddSingleton<ToolViewModel>()
             .BuildServiceProvider()
              );
         }

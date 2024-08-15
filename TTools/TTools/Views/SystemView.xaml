@@ -9,23 +9,24 @@
     <Grid>
         <WrapPanel>
             <StackPanel Orientation="Vertical">
-                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Command="{Binding AddGpeditCommand}" Margin="3" Content="&#xe660;"></Button>
+                <Button FontSize="38" Foreground="{DynamicResource tableForeground}" Style="{StaticResource IconButtonStyle}" Command="{Binding AddGpeditCommand}" Margin="3" Content="&#xe660;"></Button>
                 <TextBlock d:Text="开启组策略" Text="{DynamicResource AddGpedit}" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,5,0">
-                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Command="{Binding CloseUACCommand}" Margin="3" Content="&#xe6bd;"></Button>
+                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Foreground="{DynamicResource unColorBrush}"  Command="{Binding CloseUACCommand}" Margin="3" Content="&#xe6bd;"></Button>
                 <TextBlock d:Text="关闭UAC" Text="{DynamicResource CloseUAC}" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,5,0">
-                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Command="{Binding OpenUACCommand}" Margin="3" Content="&#xe6bd;"></Button>
+                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Foreground="{DynamicResource tableForeground}"  Command="{Binding OpenUACCommand}" Margin="3" Content="&#xe6bd;"></Button>
                 <TextBlock d:Text="打开UAC" Text="{DynamicResource OpenUAC}" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,5,0">
-                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Command="{Binding DisableSwipeCommand}" Margin="3" Content="&#xe600;"></Button>
+                <Button FontSize="38" Style="{StaticResource IconButtonStyle}"  Foreground="{DynamicResource unColorBrush}"  Command="{Binding DisableSwipeCommand}" Margin="3" Content="&#xe600;"></Button>
                 <TextBlock d:Text="禁用屏幕上滑" Text="{DynamicResource DisableSwipe}" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="5,0,5,0">
-                <Button FontSize="38" Style="{StaticResource IconButtonStyle}" Command="{Binding EnableSwipeCommand}" Margin="3" Content="&#xe600;"></Button>
+                
+                <Button FontSize="38" Style="{StaticResource IconButtonStyle}"  Foreground="{DynamicResource tableForeground}"  Command="{Binding EnableSwipeCommand}" Margin="3" Content="&#xe600;"></Button>
                 <TextBlock d:Text="启用屏幕上滑" Text="{DynamicResource EnableSwipe}" HorizontalAlignment="Center"></TextBlock>
             </StackPanel>
            

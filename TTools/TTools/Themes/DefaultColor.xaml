@@ -20,4 +20,6 @@
     <SolidColorBrush x:Key="leftControlBackground" Color="#dae0f6"></SolidColorBrush>
     <SolidColorBrush x:Key="iconIconTextBorderBrushColor" Color="#AABEDB"></SolidColorBrush>
     <SolidColorBrush x:Key="iconIconTextBackground" Color="#E3E9FF"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="unColorBrush" Color="Red"></SolidColorBrush>
 </ResourceDictionary>

@@ -79,18 +79,20 @@
                         <Ellipse Fill="Red" Width="35" Height="35"></Ellipse>
                         <TextBlock Text="用户名" VerticalAlignment="Center" FontSize="16" Margin="15,0,0,0"></TextBlock>
                     </StackPanel>
-                    <controls:NavigateButton Icon="&#xe83a;" d:Content="主页" IsChecked="True" Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemMainHomeContent}" ToolTips="Home" >
+                    <controls:NavigateButton Icon="&#xe83a;" d:Content="主页" IsChecked="True" Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemMainHomeContent}" ParentToolType="Home" >
 
                     </controls:NavigateButton>
-                    <controls:NavigateButton Icon="&#xe6a0;" d:Content="系统相关"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}" IconFontSize="20" Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemContent}" ToolTips="System" >
-
-                    </controls:NavigateButton>
-
-                    <controls:NavigateButton Icon="&#xe604;" d:Content="文本操作"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"   Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource TxtContent}" ToolTips="Txt" >
+                    <controls:NavigateButton Icon="&#xe6a0;" d:Content="系统相关"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}" IconFontSize="20" Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource SystemContent}" ParentToolType="System" >
 
                     </controls:NavigateButton>
 
-                  
+                    <controls:NavigateButton Icon="&#xe604;" d:Content="文本操作"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"   Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource TxtContent}" ParentToolType="Txt" >
+
+                    </controls:NavigateButton>
+
+                    <controls:NavigateButton Icon="&#xe8e8;" d:Content="PDF操作"  Command="{Binding MenuCommand}" CommandParameter="{Binding Path=Navigate,RelativeSource={RelativeSource Mode=Self}}"  ToolTips="PDF"  Style="{StaticResource NavigateButtonStyle}" Margin="5" Height="45" Content="{DynamicResource PdfContent}" ParentToolType="Tool">
+
+                    </controls:NavigateButton>
                 </StackPanel>
                 <Border Background="{DynamicResource workAreaBackground}"  Grid.Column="1" CornerRadius="0,0,10,0">
                     <Grid>
@@ -100,30 +102,6 @@
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding CurrentTitle}" Visibility="Collapsed" FontSize="18" FontWeight="Heavy" VerticalAlignment="Center" Margin="10,15,0,0"></TextBlock>
-                        <Border Grid.Row="1" Visibility="Collapsed" Background="{DynamicResource MainWorkAreaBackgroud}"  Height="38"  Margin="10,10,10,0"  CornerRadius="3">
-                            <ItemsControl Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" ItemsSource="{Binding ToolList}"  Margin="10,0,10,0" >
-                                <ItemsControl.Template>
-                                    <ControlTemplate>
-                                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                                            <ItemsPresenter/>
-                                        </ScrollViewer>
-                                    </ControlTemplate>
-                                </ItemsControl.Template>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal"></StackPanel>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <!--<Button Margin="10" Template="{StaticResource toolButton}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }">
-
-                                    </Button>-->
-                                        <RadioButton Content="{Binding ViewName}"  IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Command="{Binding Path=DataContext.NavigateToCommand,RelativeSource= {RelativeSource FindAncestor,AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding }" Margin="10,0,0,0" Height="30" GroupName="table" Style="{StaticResource TableButtonStyle1}"></RadioButton>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Border>
                         <Border Grid.Row="2">
                             <ContentControl   x:Name="workArea" Grid.Row="2"  Content="{Binding WorkView}"></ContentControl>
                         </Border>

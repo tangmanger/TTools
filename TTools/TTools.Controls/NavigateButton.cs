@@ -14,7 +14,7 @@ namespace TTools.Controls
     {
         public NavigateButton()
         {
-
+            Navigate=new NavigateButtonModel();
             //this.Loaded += NavigateButton_Loaded;
         }
 
@@ -46,6 +46,26 @@ namespace TTools.Controls
 
 
 
+
+        public ToolType ParentToolType
+        {
+            get { return (ToolType)GetValue(ParentToolTypeProperty); }
+            set { SetValue(ParentToolTypeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for ParentToolType.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ParentToolTypeProperty =
+            DependencyProperty.Register("ParentToolType", typeof(ToolType), typeof(NavigateButton), new PropertyMetadata(ToolType.None, ParentToolTypeCallBack));
+
+        private static void ParentToolTypeCallBack(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue != null)
+            {
+                NavigateButton navigateButton = (NavigateButton)d;
+                navigateButton.Navigate.ParentToolType = (ToolType)e.NewValue;
+            }
+        }
+
         public ToolType ToolTips
         {
             get { return (ToolType)GetValue(ToolTipsProperty); }
@@ -61,11 +81,13 @@ namespace TTools.Controls
             if (e.NewValue != null)
             {
                 NavigateButton navigateButton = (NavigateButton)d;
-                navigateButton.Navigate = new NavigateButtonModel()
-                {
-                    Title = navigateButton.Content.ToString(),
-                    ToolType = (ToolType)e.NewValue
-                };
+                //navigateButton.Navigate = new NavigateButtonModel()
+                //{
+                //    Title = navigateButton.Content.ToString(),
+                //    ToolType = (ToolType)e.NewValue,
+                //    ParentToolType = navigateButton.ParentToolType
+                //};
+                navigateButton.Navigate.ToolType = (ToolType)e.NewValue;
             }
         }
 

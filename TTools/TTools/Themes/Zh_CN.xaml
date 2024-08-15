@@ -4,6 +4,7 @@
     <system:String x:Key="SystemMainHomeContent">主页</system:String>
     <system:String x:Key="SystemContent">系统信息</system:String>
     <system:String x:Key="TxtContent">文本操作</system:String>
+    <system:String x:Key="PdfContent">PDF操作</system:String>
     <system:String x:Key="AddGpedit">开启组策略</system:String>
     <system:String x:Key="CloseUAC">关闭UAC</system:String>
     <system:String x:Key="OpenUAC">打开UAC</system:String>

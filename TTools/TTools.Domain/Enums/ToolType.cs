@@ -14,12 +14,20 @@ namespace TTools.Domain.Enums
         /// </summary>
         Home,
         /// <summary>
+        /// 工具
+        /// </summary>
+        Tool,
+        /// <summary>
         /// 系统
         /// </summary>
         System,
         /// <summary>
         /// 文本
         /// </summary>
-        Txt
+        Txt,
+        /// <summary>
+        /// pdf
+        /// </summary>
+        PDF
     }
 }
